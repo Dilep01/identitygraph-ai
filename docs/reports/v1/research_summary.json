@@ -1,0 +1,279 @@
+{
+  "representations": {
+    "cutoff": "2026-01-07T00:00:00Z",
+    "p": 1.0,
+    "q": 2.0,
+    "dimensions": 12,
+    "walks_per_node": 4,
+    "walk_length": 10,
+    "epochs": 3,
+    "training_loss": [
+      0.9765704203856945,
+      0.32982380173969716,
+      0.17372316471367988
+    ],
+    "positive_pairs": 141848,
+    "nodes": 1043,
+    "readout_training_rows": 1679,
+    "inference": "Frozen warmup embeddings; unseen IDs use zero vectors and explicit missing-node flags.",
+    "comparison": "Matched-warmup LightGBM uses identical training rows without embeddings.",
+    "limitation": "Transductive embeddings cannot transfer entity identity to independent populations."
+  },
+  "link_prediction": {
+    "status": "complete",
+    "average_precision": 0.9536687491995299,
+    "recall": 0.9024390243902439,
+    "selection": {
+      "threshold": 0.9136718809105183,
+      "recall": 0.8356164383561644,
+      "fpr": 0.01643835616438356,
+      "precision": 0.9104477611940298,
+      "selection_status": "validation_only"
+    },
+    "coverage": {
+      "train": {
+        "eligible_positive_links": 125,
+        "all_new_links": 308,
+        "candidate_universe": 67534,
+        "sampled_negatives": 625
+      },
+      "validation": {
+        "eligible_positive_links": 73,
+        "all_new_links": 215,
+        "candidate_universe": 101402,
+        "sampled_negatives": 365
+      },
+      "test": {
+        "eligible_positive_links": 41,
+        "all_new_links": 332,
+        "candidate_universe": 128451,
+        "sampled_negatives": 205
+      }
+    },
+    "windows": {
+      "train": [
+        "2026-01-08T00:00:00Z",
+        "2026-01-19T00:00:00Z"
+      ],
+      "validation": [
+        "2026-01-19T00:00:00Z",
+        "2026-01-27T00:00:00Z"
+      ],
+      "test": [
+        "2026-01-27T00:00:00Z",
+        "2026-02-06T00:00:00Z"
+      ]
+    },
+    "test_examples": 246,
+    "target": "First observed account-device link in the future window, not a fraud label",
+    "limitations": [
+      "Sampled-negative ranking; scores are not deployment-calibrated relationship probabilities.",
+      "Only nodes observed before each cutoff enter the candidate universe; cold nodes are excluded.",
+      "Unobserved links are window-specific negatives, not confirmed absent relationships."
+    ]
+  },
+  "anomaly": {
+    "future_time": {
+      "n": 1525,
+      "above_95th_percentile": 79,
+      "takeover_average_precision": 0.6088652800824358,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "cold_start": {
+      "n": 414,
+      "above_95th_percentile": 10,
+      "takeover_average_precision": 0.42483690792976775,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "new_device": {
+      "n": 290,
+      "above_95th_percentile": 33,
+      "takeover_average_precision": 0.8608801735280368,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "globally_new_device": {
+      "n": 236,
+      "above_95th_percentile": 13,
+      "takeover_average_precision": 0.009345794392523364,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "unseen_attack": {
+      "n": 1892,
+      "above_95th_percentile": 45,
+      "takeover_average_precision": 0.0187673099798032,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "familiar_session": {
+      "n": 1878,
+      "above_95th_percentile": 45,
+      "takeover_average_precision": 0.0062050967336146875,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "session_replay": {
+      "n": 1877,
+      "above_95th_percentile": 45,
+      "takeover_average_precision": 0.019514099798374315,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "shared_device_activity": {
+      "n": 326,
+      "above_95th_percentile": 20,
+      "takeover_average_precision": null,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "simulator_shift": {
+      "n": 1970,
+      "above_95th_percentile": 324,
+      "takeover_average_precision": 0.6138092775547522,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "reserved_seed_1301": {
+      "n": 1794,
+      "above_95th_percentile": 80,
+      "takeover_average_precision": 0.5800361691108524,
+      "score_type": "validation_percentile_not_fraud_probability"
+    },
+    "reserved_seed_1709": {
+      "n": 1875,
+      "above_95th_percentile": 78,
+      "takeover_average_precision": 0.4303689508409177,
+      "score_type": "validation_percentile_not_fraud_probability"
+    }
+  },
+  "cluster_replications": {
+    "simulator_shift": {
+      "ground_truth_groups": 9,
+      "candidate_clusters": 12,
+      "groups_reached": 4,
+      "candidate_group_coverage": 0.4444444444444444,
+      "fully_contained_groups": 1,
+      "pair_precision": 0.8055555555555556,
+      "pair_recall": 0.3372093023255814,
+      "benign_accounts_flagged": 12,
+      "eligible_benign_accounts": 198,
+      "benign_account_flag_rate": 0.06060606060606061,
+      "missed_groups": [
+        "group_3279cdc138972a89",
+        "group_58b484d99483482b",
+        "group_593f1fa875c4ce3e",
+        "group_65c2a6ef9741a538",
+        "group_efbe96d6a169ef0e"
+      ],
+      "coverage_definition": "At least two members of a true group in one candidate; all eligible true groups in denominator",
+      "containment_note": "Containment is not purity; pair precision penalizes unrelated accounts merged into candidates"
+    },
+    "reserved_seed_1301": {
+      "ground_truth_groups": 12,
+      "candidate_clusters": 8,
+      "groups_reached": 5,
+      "candidate_group_coverage": 0.4166666666666667,
+      "fully_contained_groups": 2,
+      "pair_precision": 0.8846153846153846,
+      "pair_recall": 0.35384615384615387,
+      "benign_accounts_flagged": 6,
+      "eligible_benign_accounts": 198,
+      "benign_account_flag_rate": 0.030303030303030304,
+      "missed_groups": [
+        "group_428e10c006c2b948",
+        "group_82ba96472fe3b12d",
+        "group_90a2b249d071e727",
+        "group_9f901080fc38b273",
+        "group_b4c0bb7d8ec16597",
+        "group_cf98ca844e0b5d93",
+        "group_d014d18870647971"
+      ],
+      "coverage_definition": "At least two members of a true group in one candidate; all eligible true groups in denominator",
+      "containment_note": "Containment is not purity; pair precision penalizes unrelated accounts merged into candidates"
+    },
+    "reserved_seed_1709": {
+      "ground_truth_groups": 12,
+      "candidate_clusters": 24,
+      "groups_reached": 10,
+      "candidate_group_coverage": 0.8333333333333334,
+      "fully_contained_groups": 8,
+      "pair_precision": 0.6078431372549019,
+      "pair_recall": 0.49206349206349204,
+      "benign_accounts_flagged": 22,
+      "eligible_benign_accounts": 198,
+      "benign_account_flag_rate": 0.1111111111111111,
+      "missed_groups": [
+        "group_25560112614b6068",
+        "group_6ad6a530cfe659d4"
+      ],
+      "coverage_definition": "At least two members of a true group in one candidate; all eligible true groups in denominator",
+      "containment_note": "Containment is not purity; pair precision penalizes unrelated accounts merged into candidates"
+    }
+  },
+  "resolution_sensitivity": {
+    "as_observed": {
+      "ground_truth_groups": 11,
+      "candidate_clusters": 11,
+      "groups_reached": 8,
+      "candidate_group_coverage": 0.7272727272727273,
+      "fully_contained_groups": 8,
+      "pair_precision": 0.90625,
+      "pair_recall": 0.8529411764705882,
+      "benign_accounts_flagged": 6,
+      "eligible_benign_accounts": 198,
+      "benign_account_flag_rate": 0.030303030303030304,
+      "missed_groups": [
+        "group_790c6a48580ef2d7",
+        "group_9af07dab7828c563",
+        "group_beb57897f553e70f"
+      ],
+      "coverage_definition": "At least two members of a true group in one candidate; all eligible true groups in denominator",
+      "containment_note": "Containment is not purity; pair precision penalizes unrelated accounts merged into candidates"
+    },
+    "exact_only": {
+      "ground_truth_groups": 11,
+      "candidate_clusters": 11,
+      "groups_reached": 8,
+      "candidate_group_coverage": 0.7272727272727273,
+      "fully_contained_groups": 8,
+      "pair_precision": 0.90625,
+      "pair_recall": 0.8529411764705882,
+      "benign_accounts_flagged": 6,
+      "eligible_benign_accounts": 198,
+      "benign_account_flag_rate": 0.030303030303030304,
+      "missed_groups": [
+        "group_790c6a48580ef2d7",
+        "group_9af07dab7828c563",
+        "group_beb57897f553e70f"
+      ],
+      "coverage_definition": "At least two members of a true group in one candidate; all eligible true groups in denominator",
+      "containment_note": "Containment is not purity; pair precision penalizes unrelated accounts merged into candidates"
+    },
+    "addresses_missing": {
+      "ground_truth_groups": 11,
+      "candidate_clusters": 11,
+      "groups_reached": 8,
+      "candidate_group_coverage": 0.7272727272727273,
+      "fully_contained_groups": 7,
+      "pair_precision": 0.9032258064516129,
+      "pair_recall": 0.8235294117647058,
+      "benign_accounts_flagged": 6,
+      "eligible_benign_accounts": 198,
+      "benign_account_flag_rate": 0.030303030303030304,
+      "missed_groups": [
+        "group_790c6a48580ef2d7",
+        "group_9af07dab7828c563",
+        "group_beb57897f553e70f"
+      ],
+      "coverage_definition": "At least two members of a true group in one candidate; all eligible true groups in denominator",
+      "containment_note": "Containment is not purity; pair precision penalizes unrelated accounts merged into candidates"
+    }
+  },
+  "resolution_model_sensitivity": "research/resolution_model_sensitivity.json",
+  "external_benchmark": {
+    "status": "source_data_not_supplied",
+    "command": "identitygraph ieee-benchmark --data-dir <CSV folder>"
+  },
+  "experiments": {
+    "E1": "behavior vs relationship LightGBM vs GraphSAGE/RGCN/GAT",
+    "E2": "lightgbm_graph vs lightgbm_no_device",
+    "E3": "heterogeneous_rgcn vs heterogeneous_relation_ablated",
+    "E4": "shared_device_activity and candidate false positives",
+    "E5": "cold_start and reserved populations",
+    "E6": "exact/fuzzy and missing-address candidate sensitivity"
+  }
+}

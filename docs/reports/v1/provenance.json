@@ -1,0 +1,47 @@
+{
+  "run": "v1",
+  "provenance": "fully_synthetic",
+  "sources": {
+    "REPORT.md": {
+      "original_path": "artifacts/v1/REPORT.md",
+      "original_sha256": "f6a8450091afa92ca5654a1b98db75dc2a624f0a7db1286f67589720b95a902e"
+    },
+    "evaluation.json": {
+      "original_path": "artifacts/v1/evaluation.json",
+      "original_sha256": "a45c91df7372926fcc8a896c6ac568a49d873e57787b82fc0c199f20d0ddd5fe",
+      "path_redaction_applied": true
+    },
+    "research_summary.json": {
+      "original_path": "artifacts/v1/research/summary.json",
+      "original_sha256": "529cf761b4a0048f477ff3ab4a330208b9344bfc48603487c7b188c36da640a7",
+      "path_redaction_applied": false
+    },
+    "training_source_checksums.json": {
+      "original_path": "artifacts/v1/source_checksums.json",
+      "original_sha256": "b213119f37018b2322943753e4be1e2dca9f6760653a1655add9cc7e5bd8b5a5",
+      "path_redaction_applied": false
+    },
+    "data_manifest.json": {
+      "original_path": "data/v1/manifest.json",
+      "original_sha256": "4dd7a9a508ddd8db0f10a2113725c8c4d6d08dc0a476b3769587b70181c0bf68",
+      "path_redaction_applied": false
+    },
+    "verification.json": {
+      "original_path": "artifacts/verification/v1/final_manifest.json",
+      "original_sha256": "36cff76a4f697de76ad68fe45d417ee68d9a0f270adf4f4d905509c9814de299",
+      "transformation": "Selected fields plus replay and browser results; machine-local details omitted."
+    },
+    "../../images/dashboard.png": {
+      "original_path": "artifacts/verification/v1/dashboard.png",
+      "original_sha256": "9179d2c59fdf744cf4f92ffe1f0ff345375bdfca7e53da7e1ed048bb9bdb3605"
+    }
+  },
+  "published_sha256": {
+    "data_manifest.json": "4dd7a9a508ddd8db0f10a2113725c8c4d6d08dc0a476b3769587b70181c0bf68",
+    "evaluation.json": "f8c425a662aabc6f062daa428934b1219ffee9723301801de1a6c998260fdb0f",
+    "REPORT.md": "f6a8450091afa92ca5654a1b98db75dc2a624f0a7db1286f67589720b95a902e",
+    "research_summary.json": "529cf761b4a0048f477ff3ab4a330208b9344bfc48603487c7b188c36da640a7",
+    "training_source_checksums.json": "b213119f37018b2322943753e4be1e2dca9f6760653a1655add9cc7e5bd8b5a5",
+    "verification.json": "bedc963777a9739499b6fbba6b20d3b283d44d1a49c9694f2265e86f87d04e11"
+  }
+}

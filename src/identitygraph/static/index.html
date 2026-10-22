@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="IdentityGraph AI local synthetic identity investigation laboratory">
+  <title>IdentityGraph AI · Investigation lab</title>
+  <link rel="stylesheet" href="/static/styles.css?v=1.0.0"><script defer src="/static/app.js?v=1.0.0"></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="IdentityGraph AI home"><span class="brand-mark">ig</span><span>IdentityGraph<span class="brand-sub">AI · INVESTIGATION LAB</span></span></a>
+    <div class="nav-label">WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <button class="nav-item active" data-tab="overview"><span>◈</span> Investigation desk</button>
+      <button class="nav-item" data-tab="clusters"><span>⌘</span> Relationship candidates</button>
+      <button class="nav-item" data-tab="evaluation"><span>▥</span> Evaluation notebook</button>
+    </nav>
+    <div class="sidebar-note"><span class="status-dot"></span> LOCAL RESEARCH ENVIRONMENT<p>Fictional identities.<br>Observable evidence.<br>Reproducible decisions.</p></div>
+    <div class="sidebar-footer">v1.0 · Research edition<br><a href="/docs" target="_blank" rel="noopener">API reference ↗</a></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><span class="eyebrow">IDENTITY & AUTHENTICATION</span><h1 id="page-title">Investigation desk</h1></div><div class="environment"><span class="status-dot" id="health-dot"></span><span id="health-label">Connecting</span></div></header>
+    <div class="research-banner"><span class="banner-label">SYNTHETIC DATA</span><span>Every account and event is fictional. Scores describe simulated validation data; review flags never block an account.</span></div>
+    <div id="error" class="error-banner hidden" role="alert"></div>
+    <section id="empty" class="empty-state hidden"><h2>The local dataset is not ready</h2><p id="empty-detail">Build the demo artifacts, then refresh this page.</p><button id="retry" class="button primary">Refresh connection</button></section>
+    <div id="workspace">
+      <section class="metrics" aria-label="Current workspace counts">
+        <article class="metric"><div>OBSERVED ACCOUNTS</div><strong id="metric-accounts">—</strong><small>Available at the history cutoff</small></article>
+        <article class="metric"><div>DEVICE HISTORY</div><strong id="metric-devices">—</strong><small>Devices observed in prior events</small></article>
+        <article class="metric"><div>STORED ASSESSMENTS</div><strong id="metric-assessments">—</strong><small>Successful replayed sessions</small></article>
+        <article class="metric"><div>REVIEW CANDIDATES</div><strong id="metric-reviews">—</strong><small>Either score meets its threshold</small></article>
+      </section>
+      <section class="view" id="view-overview">
+        <section class="replay-panel panel"><div><div class="section-kicker">CONTROLLED REPLAY</div><h2>Move through held-out activity</h2><p>Earlier observations seed the history. Each new score uses only evidence available at that moment.</p></div><div class="replay-controls"><div class="replay-status"><strong id="replay-count">—</strong><span id="replay-next">Waiting for data</span></div><div class="button-row"><button class="button primary" data-replay="1">Replay next</button><button class="button" id="play-replay">Play replay</button><button class="button" data-replay="25">+25 events</button><button class="button" data-replay="100">+100 events</button><button class="button quiet" id="reset">Reset replay</button></div></div><div class="progress-track"><div id="replay-progress"></div></div></section>
+        <div class="investigation-grid">
+          <section class="panel account-panel"><div class="panel-heading"><div><div class="section-kicker">ENTITY EXPLORER</div><h2>Accounts</h2></div><span class="count-badge" id="account-count">0</span></div><label class="search-label" for="account-search">Search account ID</label><input type="search" id="account-search" placeholder="Search an account…" autocomplete="off"><div id="account-list" class="account-list"></div></section>
+          <section class="panel evidence-panel"><div class="panel-heading"><div><div class="section-kicker">OBSERVABLE RELATIONSHIPS</div><h2 id="selected-account">Select an account</h2></div><span class="pill neutral" id="selected-state">No assessment</span></div><div class="graph-legend"><span class="legend-account">Account</span><span class="legend-device">Device</span><span class="legend-ip">IP</span><span class="legend-attribute">Attribute</span></div><svg id="network" viewBox="0 0 760 330" role="img" aria-label="Bounded account relationship graph"></svg><p id="graph-caption" class="muted graph-caption">Relationships are evidence for investigation, not proof of shared ownership.</p><div class="score-row" id="account-scores"></div><div class="evidence-details"><div><h3>Device history</h3><div id="device-history" class="compact-list"></div></div><div><h3>Assessment evidence</h3><div id="feature-evidence" class="compact-list"></div></div></div></section>
+        </div>
+        <section class="panel cases-panel"><div class="panel-heading"><div><div class="section-kicker">DURABLE ASSESSMENT LEDGER</div><h2>Recent sessions</h2></div><span class="muted">Select a session to inspect its account</span></div><div class="table-scroll"><table><thead><tr><th>Session / time (UTC)</th><th>Account</th><th>Takeover score</th><th>Identity score</th><th>Review state</th></tr></thead><tbody id="case-rows"></tbody></table></div></section>
+        <section class="panel monitoring-panel"><div><div class="section-kicker">REPLAY MONITORING</div><h2>Current observation window</h2><p id="monitor-note" class="muted"></p></div><div class="monitor-values" id="monitor-values"></div></section>
+        <section class="panel"><h2>Observed shifts and delayed outcomes</h2><div id="shift-summary" class="evaluation-notes"></div><div id="feedback-summary" class="evaluation-notes"></div></section>
+      </section>
+      <section class="view hidden" id="view-clusters"><section class="panel"><div class="panel-heading"><div><div class="section-kicker">CANDIDATES · NOT CONFIRMED FRAUD</div><h2>Shared evidence worth reviewing</h2></div><span class="pill neutral">Heuristic score · 0–100</span></div><p class="muted">Candidate groups use observable relationships. Shared IPs alone do not form candidates, and accounts are never permanently merged.</p><div id="cluster-list" class="cluster-grid"></div></section></section>
+      <section class="view hidden" id="view-evaluation"><section class="panel"><div class="panel-heading"><div><div class="section-kicker">FIXED HELD-OUT EXPERIMENTS</div><h2>Model comparison</h2></div><span class="pill neutral">Simulated outcomes only</span></div><p class="muted">Thresholds and calibration are selected on validation data. These offline results are separate from the live replay ledger.</p><div class="filter-row"><label>Evaluation split<select id="evaluation-split"></select></label><label>Target<select id="evaluation-target"><option value="takeover">Account takeover</option><option value="identity">Synthetic identity</option></select></label></div><div class="table-scroll"><table><thead><tr><th>Model</th><th>Average precision</th><th>Brier score ↓</th><th>Precision</th><th>Recall</th><th>False alerts / 1,000</th><th>Examples</th></tr></thead><tbody id="evaluation-rows"></tbody></table></div><div id="evaluation-notes" class="evaluation-notes"></div></section><section class="panel limitations-panel"><h2>Boundaries of this experiment</h2><ul id="limitations"></ul></section></section>
+      <section class="panel hidden" id="research-panel"><div class="section-kicker">REPRODUCIBLE RESEARCH</div><h2>Additional experiments</h2><div id="research-summary" class="evaluation-notes"></div><div id="cluster-comparison" class="table-scroll"></div></section>
+      <footer class="workspace-footer"><span id="history-cutoff">History cutoff: —</span><span id="model-version">Model: —</span></footer>
+    </div>
+  </main>
+</div>
+<div id="notification" class="notification hidden" role="status" aria-live="polite"></div>
+</body></html>

@@ -1,0 +1,113 @@
+{
+  "checked_at": "2026-10-22T05:43:06.975818+00:00",
+  "run": "v1",
+  "project_version": "1.0.0",
+  "test_suites": {
+    "tests": {
+      "tests": "54",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "timestamp": "2026-10-21T18:02:27.005301+05:30"
+    },
+    "wheel_tests": {
+      "tests": "54",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "timestamp": "2026-10-21T21:36:57.411044+05:30"
+    }
+  },
+  "data_integrity": {
+    "v1": {
+      "files_verified": 7,
+      "manifest_sha256": "4dd7a9a508ddd8db0f10a2113725c8c4d6d08dc0a476b3769587b70181c0bf68",
+      "seed": 907
+    },
+    "v1_reserved_seed_1301": {
+      "files_verified": 7,
+      "manifest_sha256": "cbc5a9068a4e6e069198cc8539e79a7dfd5cb2c481a48a6a2d2069888da9e409",
+      "seed": 1301
+    },
+    "v1_reserved_seed_1709": {
+      "files_verified": 7,
+      "manifest_sha256": "f4e7abed14ac0b193d6f592daf19c9f599a34456d2ebb9dab6823c31a9deb201",
+      "seed": 1709
+    },
+    "v1_shift": {
+      "files_verified": 7,
+      "manifest_sha256": "d6148c88f61fd0bfa54eca0015ea3ce8d0f5d0531bd7dc4285900d0d734dd1db",
+      "seed": 1907
+    }
+  },
+  "experiment_artifacts_verified": 44,
+  "post_training_changes": {
+    "src/identitygraph/api.py": {
+      "training_sha256": "4529b720657e2efc0db1bc4f3861bffaa818f7e2cf295173f14bf91c7af96249",
+      "delivered_sha256": "f8adfd3463b8b9a1cf6ff7f7710dabc3ffc011f4f27eded382ee05439547e80f"
+    },
+    "src/identitygraph/cli.py": {
+      "training_sha256": "98ceaaff96178e15f2ac256bef6b5ce4d0f0a763479056fc58abcc5bf0a503df",
+      "delivered_sha256": "a480ae0421c936d23bf23336a9193bf3a12df403429118648b6172e55cabeec7"
+    },
+    "src/identitygraph/static/app.js": {
+      "training_sha256": "067ed772f156e24f506c0a1dce2446ec1217406a21d94fa9b79d4a17fd30c9ec",
+      "delivered_sha256": "971c16d141f38fb52ba18a07b3bb313bdf4ac7225ff433d7ae56389f57d06209"
+    }
+  },
+  "model_feature_and_simulator_sources_unchanged": true,
+  "javascript_syntax_check": {
+    "status": "passed",
+    "command": "node --check src/identitygraph/static/app.js"
+  },
+  "replay": {
+    "run": "v1",
+    "data_checksums_verified": 7,
+    "artifact_checksums_verified": 44,
+    "events_replayed": 2133,
+    "successful_session_scores_verified": 1939,
+    "max_score_difference": 0.0,
+    "all_feature_values_exact": true,
+    "restart_persistence_verified": true,
+    "duplicate_idempotency_verified": true,
+    "replay_reset_after_check": true
+  },
+  "browser": {
+    "checked_at": "2026-10-22T05:41:38.002Z",
+    "run": "v1",
+    "url": "http://127.0.0.1:8765",
+    "checks": {
+      "model_readiness": true,
+      "batch_replay_100": true,
+      "automatic_replay_advanced": true,
+      "pause_stopped_subsequent_events": true,
+      "search_matched_one_account": true,
+      "account_selection": true,
+      "candidate_to_account_navigation": true,
+      "stored_evidence_and_anomaly": true,
+      "unseen_takeover_filter": true,
+      "cold_identity_filter": true,
+      "twelve_models_displayed": true,
+      "six_candidate_comparison_rows": true,
+      "research_and_external_data_limits_displayed": true,
+      "monitoring_and_no_available_feedback_displayed": true
+    },
+    "observed": {
+      "assessments": "96",
+      "case_export_link_present": true,
+      "document_width": 609,
+      "graph_nodes": 42,
+      "manual_reviews": "16",
+      "model_version": "Model: identitygraph-baselines-v2",
+      "play_button": "Play replay",
+      "replay": "106 / 2,133 events replayed",
+      "selected_account": "acct_0a9c6440cfd16543",
+      "viewport_width": 615,
+      "visible_error": false
+    },
+    "captured_console_errors": [],
+    "scope": "Observed 615-pixel in-app browser viewport only. Case export hyperlink checked; export response and feedback persistence checked in API tests, not through a browser download."
+  },
+  "evidence_source": "Recorded local checks from 21-22 October 2026; not a GitHub Actions result.",
+  "omissions": "Machine paths, package install paths, hostnames, full logs and mutable runtime state are omitted."
+}
